@@ -41,6 +41,9 @@ class MyHomePage extends StatelessWidget {
           color: Colors.amber,
           height: 200,
           width: 200,
+          child: Text(
+            "Hello World  ",
+          ),
         ),
       ),
     );
