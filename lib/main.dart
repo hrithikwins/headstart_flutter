@@ -37,15 +37,28 @@ class MyHomePage extends StatelessWidget {
     // our code goes here
     return Scaffold(
       body: Center(
+        // black container
         child: Container(
-          color: Colors.amber,
+          color: Colors.black,
           height: 200,
-          width: 200,
-          padding: EdgeInsets.all(
-            28.0,
-          ),
-          child: Text(
-            "Hello World ",
+          padding: EdgeInsets.all(20.0),
+          // orange container
+          child: Container(
+            color: Colors.deepOrange,
+            // height: 80,
+            // amber container
+            child: Container(
+              // margin: EdgeInsets.all(20.0),
+              color: Colors.amber,
+              height: 80,
+              width: 200,
+              padding: EdgeInsets.all(
+                28.0,
+              ),
+              child: Text(
+                "Hello World ",
+              ),
+            ),
           ),
         ),
       ),
