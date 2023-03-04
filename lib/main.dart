@@ -37,8 +37,9 @@ class MyHomePage extends StatelessWidget {
     // our code goes here
     return Scaffold(
       body: Center(
-        // black container
+        // your code starts from here
         child: Container(
+          alignment: Alignment.bottomRight,
           color: Colors.black,
           height: 200,
           padding: EdgeInsets.all(20.0),
