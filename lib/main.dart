@@ -69,7 +69,6 @@ class MyHomePage extends StatelessWidget {
             // height: 80,
             // amber container
             child: Container(
-              foregroundDecoration: BoxDecoration(),
               margin: EdgeInsets.all(20.0),
               color: Colors.amber,
               height: 80,
@@ -77,11 +76,12 @@ class MyHomePage extends StatelessWidget {
               padding: EdgeInsets.all(
                 28.0,
               ),
-              transform: Matrix4.rotationX(
-                Math.pi,
-              ),
+              // transform: Matrix4.rotationX(
+              //   Math.pi,
+              // ),
               child: Text(
                 "Hello World ",
+
               ),
             ),
           ),
