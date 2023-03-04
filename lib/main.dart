@@ -39,17 +39,18 @@ class MyHomePage extends StatelessWidget {
       body: Center(
         // your code starts from here
         child: Container(
-          alignment: Alignment.bottomRight,
+          alignment: Alignment.topRight,
           color: Colors.black,
-          height: 200,
+          height: 600,
+          // width: 200,
           padding: EdgeInsets.all(20.0),
-          // orange container
+          // this is the child container -> orange and every children
           child: Container(
             color: Colors.deepOrange,
             // height: 80,
             // amber container
             child: Container(
-              // margin: EdgeInsets.all(20.0),
+              margin: EdgeInsets.all(20.0),
               color: Colors.amber,
               height: 80,
               width: 200,
