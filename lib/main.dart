@@ -41,8 +41,11 @@ class MyHomePage extends StatelessWidget {
           color: Colors.amber,
           height: 200,
           width: 200,
+          padding: EdgeInsets.all(
+            28.0,
+          ),
           child: Text(
-            "Hello World  ",
+            "Hello World ",
           ),
         ),
       ),
