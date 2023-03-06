@@ -80,9 +80,10 @@ class MyHomePage extends StatelessWidget {
               transform: Matrix4.rotationX(
                 Math.pi / 4,
               ),
-              child: Image.network(
-                "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fih1.redbubble.net%2Fimage.1187851051.8476%2Fflat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8.jpg&f=1&nofb=1&ipt=2ef09687efba91b6cfe5a6da2a8cddd5e506c06615fd1bbe9c97d6da7eb7f90f&ipo=images",
-                fit: BoxFit.cover,
+              child: Image.asset(
+                // "images/flutter-banner.png",
+                "images/flutter-2.jpg",
+                fit: BoxFit.contain,
               ),
             ),
           ),
