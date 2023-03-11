@@ -50,8 +50,8 @@ class MyHomePage extends StatelessWidget {
         // width: MediaQuery.of(context).size.width,
         child: Stack(
           // fit: StackFit.passthrough
-          // clipBehavior: Clip.hardEdge,
-          // alignment: Alignment.bottomRight,
+          // clipBehavior: Clip.antiAlias,
+          alignment: Alignment.bottomRight,
           children: <Widget>[
             Container(
               height: 120,
@@ -66,11 +66,15 @@ class MyHomePage extends StatelessWidget {
               child: Text("Hello"),
             ),
 
-            Container(
-              height: 20,
-              width: 350,
-              color: Colors.green,
-              child: Text("Hello"),
+            Positioned(
+              bottom: 20,
+              right: 0,
+              child: Container(
+                height: 20,
+                width: 350,
+                color: Colors.green,
+                child: Text("Hello"),
+              ),
             ),
           ],
         ),
