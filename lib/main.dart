@@ -46,9 +46,12 @@ class MyHomePage extends StatelessWidget {
       //top to bottom(vertical axis) -> mainAxis
       //l horizontal axis => cross Axis of column
       body: Container(
-        width: MediaQuery.of(context).size.width,
+        width: 200,
+        // width: MediaQuery.of(context).size.width,
         child: Stack(
-          alignment: Alignment.center,
+          // fit: StackFit.passthrough
+          // clipBehavior: Clip.hardEdge,
+          // alignment: Alignment.bottomRight,
           children: <Widget>[
             Container(
               height: 120,
@@ -65,7 +68,7 @@ class MyHomePage extends StatelessWidget {
 
             Container(
               height: 20,
-              width: 150,
+              width: 350,
               color: Colors.green,
               child: Text("Hello"),
             ),
