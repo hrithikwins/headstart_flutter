@@ -45,39 +45,39 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       //top to bottom(vertical axis) -> mainAxis
       //l horizontal axis => cross Axis of column
-      body: Container(
-        width: 200,
-        // width: MediaQuery.of(context).size.width,
-        child: Stack(
-          // fit: StackFit.passthrough
-          // clipBehavior: Clip.antiAlias,
-          alignment: Alignment.bottomRight,
-          children: <Widget>[
-            Container(
-              height: 120,
-              width: 300,
-              color: Colors.yellow,
-              child: Text("World"),
-            ),
-            Container(
+      body: Stack(
+        // fit: StackFit.passthrough
+        clipBehavior: Clip.none,
+        alignment: Alignment.bottomRight,
+        children: <Widget>[
+          Container(
+            height: 120,
+            width: 200,
+            color: Colors.yellow,
+            child: Text("World"),
+          ),
+          Positioned(
+            top: 20,
+            right: 0,
+            child: Container(
               height: 50,
               width: 150,
               color: Colors.red,
               child: Text("Hello"),
             ),
+          ),
 
-            Positioned(
-              bottom: 20,
-              right: 0,
-              child: Container(
-                height: 20,
-                width: 350,
-                color: Colors.green,
-                child: Text("Hello"),
-              ),
+          Positioned(
+            bottom: 20,
+            right: 0,
+            child: Container(
+              height: 20,
+              width: 350,
+              color: Colors.green,
+              child: Text("Hello"),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
