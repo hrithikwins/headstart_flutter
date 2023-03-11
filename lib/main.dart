@@ -45,39 +45,23 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       //top to bottom(vertical axis) -> mainAxis
       //l horizontal axis => cross Axis of column
-      body: Stack(
-        // fit: StackFit.passthrough
-        clipBehavior: Clip.none,
-        alignment: Alignment.bottomRight,
-        children: <Widget>[
-          Container(
-            height: 120,
-            width: 200,
-            color: Colors.yellow,
-            child: Text("World"),
-          ),
-          Positioned(
-            top: 20,
-            right: 0,
-            child: Container(
-              height: 50,
-              width: 150,
-              color: Colors.red,
-              child: Text("Hello"),
-            ),
-          ),
-
-          Positioned(
-            bottom: 20,
-            right: 0,
-            child: Container(
-              height: 20,
-              width: 350,
-              color: Colors.green,
-              child: Text("Hello"),
-            ),
-          ),
-        ],
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        child: ListView.builder(
+          itemCount: 50,
+          itemBuilder: ((context, index) => Container(
+                color: Colors.red,
+                height: 30,
+                width: 20,
+                child: Text(
+                  "Hello $index",
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.white,
+                  ),
+                ),
+              )),
+        ),
       ),
     );
   }
