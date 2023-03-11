@@ -47,12 +47,8 @@ class MyHomePage extends StatelessWidget {
       //l horizontal axis => cross Axis of column
       body: Container(
         width: MediaQuery.of(context).size.width,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          // textDirection: TextDirection.rtl,
-          // mainAxisAlignment: MainAxisAlignment.spaceAround,
-          mainAxisSize: MainAxisSize.min,
+        child: Stack(
+          alignment: Alignment.center,
           children: <Widget>[
             Container(
               height: 120,
@@ -61,15 +57,15 @@ class MyHomePage extends StatelessWidget {
               child: Text("World"),
             ),
             Container(
-              height: 120,
-              width: 300,
+              height: 50,
+              width: 150,
               color: Colors.red,
               child: Text("Hello"),
             ),
 
             Container(
-              height: 120,
-              width: 300,
+              height: 20,
+              width: 150,
               color: Colors.green,
               child: Text("Hello"),
             ),
