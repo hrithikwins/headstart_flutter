@@ -58,7 +58,7 @@ class MyHomePage extends StatelessWidget {
               height: 120,
               width: 300,
               color: Colors.yellow,
-              child: Text("Hello"),
+              child: Text("World"),
             ),
             Container(
               height: 120,
