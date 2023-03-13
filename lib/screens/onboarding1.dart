@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import "dart:math" as Math;
 
-import 'package:headstart_flutter/constanats/colors.dart';
+import 'package:headstart_flutter/constants/colors.dart';
 
 void main() {
   runApp(const MyApp());
