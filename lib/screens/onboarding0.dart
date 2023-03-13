@@ -64,6 +64,7 @@ class MyHomePage extends StatelessWidget {
                 ),
                 child: Text(
                   "To be a responsible donor, you must get a check-up.",
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 18,
                     color: Colors.white,
