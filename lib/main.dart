@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import "dart:math" as Math;
 
+import 'package:headstart_flutter/screens/stateful-assignment.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -25,68 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    // our code goes here
-    return Scaffold(
-      body: Center(
-        // your code starts from here
-        child: Container(
-          alignment: Alignment.topRight,
-          // color: Colors.black,
-          height: 600,
-          decoration: BoxDecoration(
-            border:
-                Border.all(width: 2.0, color: Color.fromARGB(255, 215, 0, 0)),
-          ),
-          // width: 200,
-          padding: EdgeInsets.all(20.0),
-          // this is the child container -> orange and every children
-          child: Container(
-            // color: Colors.deepOrange,
-            decoration: BoxDecoration(
-              color: Colors.deepOrange,
-              borderRadius: BorderRadius.circular(20.0),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.blue,
-                  blurRadius: 20.0,
-                  offset: Offset(
-                    0,
-                    20,
-                  ),
-                ),
-              ],
-            ),
-            // height: 80,
-            // amber container
-            child: Container(
-              margin: EdgeInsets.all(20.0),
-              color: Colors.amber,
-              height: 80,
-              width: 200,
-              padding: EdgeInsets.all(
-                28.0,
-              ),
-              // transform: Matrix4.rotationX(
-              //   Math.pi,
-              // ),
-              child: Text(
-                "Hello World ",
-
-              ),
-            ),
-          ),
-        ),
-      ),
+      home: const StatefulAssignment(),
     );
   }
 }
