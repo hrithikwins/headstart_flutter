@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import "dart:math" as Math;
 
+import 'package:headstart_flutter/screens/otp_page.dart';
+
 const images = {
   "image1": "images/logo.png",
   "image2": "images/flutter-banner.png",
@@ -31,51 +33,55 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      home: OtpPage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    // our code goes here
-    return Scaffold(
-      //top to bottom(vertical axis) -> mainAxis
-      //l horizontal axis => cross Axis of column
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          // textDirection: TextDirection.rtl,
-          // mainAxisAlignment: MainAxisAlignment.spaceAround,
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Container(
-              height: 120,
-              width: 300,
-              color: Colors.green,
-              child: Text("Hello"),
-            ),
-            Container(
-              height: 120,
-              width: 300,
-              color: Colors.green,
-              child: Text("Hello"),
-            ),
 
-            Container(
-              height: 120,
-              width: 300,
-              color: Colors.green,
-              child: Text("Hello"),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+
+
+// class MyHomePage extends StatelessWidget {
+//   const MyHomePage({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     // our code goes here
+//     return Scaffold(
+//       //top to bottom(vertical axis) -> mainAxis
+//       //l horizontal axis => cross Axis of column
+//       body: Container(
+//         width: MediaQuery.of(context).size.width,
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           // textDirection: TextDirection.rtl,
+//           // mainAxisAlignment: MainAxisAlignment.spaceAround,
+//           mainAxisSize: MainAxisSize.min,
+//           children: <Widget>[
+//             Container(
+//               height: 120,
+//               width: 300,
+//               color: Colors.green,
+//               child: Text("Hello"),
+//             ),
+//             Container(
+//               height: 120,
+//               width: 300,
+//               color: Colors.green,
+//               child: Text("Hello"),
+//             ),
+
+//             Container(
+//               height: 120,
+//               width: 300,
+//               color: Colors.green,
+//               child: Text("Hello"),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
