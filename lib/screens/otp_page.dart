@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 
 class OtpPage extends StatelessWidget {
-  const OtpPage({super.key});
+final String phoneNumber;
+  const OtpPage({super.key, this.phoneNumber = "9542983532"});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,8 @@ class OtpPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            pageTitle(),
+            pageTitle(phoneNumber),
+
             Container(
               child: Text(
                 "Hello World",
@@ -26,7 +28,7 @@ class OtpPage extends StatelessWidget {
     );
   }
 
-  Widget pageTitle() {
+  Widget pageTitle(String phoneNumber) {
     return Column(
       children: [
         Container(
@@ -39,7 +41,7 @@ class OtpPage extends StatelessWidget {
         ),
         Container(
           child: Text(
-            "Enter the OTP sent to +91 9542983532",
+            "Enter the OTP sent to +91 " + phoneNumber,
             style: TextStyle(
               fontSize: 15,
               color: AppColors.greyText,

@@ -33,7 +33,9 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: OtpPage(),
+      home: OtpPage(
+        phoneNumber: "8668651325",
+      ),
     );
   }
 }
