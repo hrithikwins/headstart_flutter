@@ -9,7 +9,7 @@ class ResponsiveSize {
 
   static Widget height(double size, BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.width * size / 360,
+      height: MediaQuery.of(context).size.height * size / 360,
     );
   }
 }
