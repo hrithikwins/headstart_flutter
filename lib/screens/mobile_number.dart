@@ -3,6 +3,8 @@ import "dart:math" as Math;
 
 import 'package:headstart_flutter/constants/colors.dart';
 
+import '../widgets/custom-button.dart';
+
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
 
@@ -39,25 +41,9 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
               //
-              Container(
-                width: 265,
-                height: 53,
-                decoration: BoxDecoration(
-                  color: AppColors.dullRed,
-                  borderRadius: BorderRadius.circular(
-                    4,
-                  ),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  "GET OTP",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              )
+              customButton("GET OTP", () {
+                print("Get OTP");
+              }),
               // ElevatedButton(onPressed: () => null, child: Text("LOGIN"))
             ],
           ),

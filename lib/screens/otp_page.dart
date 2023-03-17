@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../constants/colors.dart';
+import '../utils/media-utils.dart';
+import '../widgets/custom-button.dart';
 
 class OtpPage extends StatelessWidget {
 final String phoneNumber;
@@ -16,14 +19,81 @@ final String phoneNumber;
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             pageTitle(phoneNumber),
+            ResponsiveSize.height(72, context),
+            otpFieldWidget(context),
+            ResponsiveSize.height(54, context),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Didn’t receive an OTP?",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: AppColors.greyText,
+                  ),
+                ),
 
-            Container(
-              child: Text(
-                "Hello World",
-              ),
+                InkWell(
+                  onTap: () {
+                    print("Resend OTP");
+                  },
+                  child: Text(
+                    " Resend OTP",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: AppColors.primaryRed,
+                    ),
+                  ),
+                ),
+              ],
             ),
+            ResponsiveSize.height(51, context),
+            customButton("VERIFY OTP", () {
+              print("Get OTP");
+            }),
+
           ],
         ),
+      ),
+    );
+  }
+
+  Container otpFieldWidget(BuildContext context) {
+    return Container(
+      width: 196,
+      child: PinCodeTextField(
+        appContext: context,
+        length: 4,
+
+        obscureText: false,
+        animationType: AnimationType.fade,
+        pinTheme: PinTheme(
+          shape: PinCodeFieldShape.underline,
+          borderRadius: BorderRadius.circular(5),
+          fieldHeight: 50,
+          fieldWidth: 40,
+          activeFillColor: Colors.white,
+        ),
+        animationDuration: Duration(milliseconds: 300),
+        // backgroundColor: Colors.blue.shade50,
+        // enableActiveFill: true,
+        // errorAnimationController: errorController,
+        // controller: textEditingController,
+        onCompleted: (v) {
+          print("Completed");
+        },
+        onChanged: (value) {
+          print(value);
+          // setState(() {
+          //   currentText = value;
+          // });
+        },
+        beforeTextPaste: (text) {
+          print("Allowing to paste $text");
+          //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
+          //but you can show anything you want here, like your pop up saying wrong paste format or etc
+          return true;
+        },
       ),
     );
   }
