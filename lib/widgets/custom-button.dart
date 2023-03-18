@@ -26,3 +26,28 @@ Widget customButton(String text, VoidCallback onPressed) {
     ),
   );
 }
+
+
+
+
+Widget customButtonDesign(String text) {
+  return Container(
+    width: 265,
+    height: 53,
+    decoration: BoxDecoration(
+      color: AppColors.dullRed,
+      borderRadius: BorderRadius.circular(
+        4,
+      ),
+    ),
+    alignment: Alignment.center,
+    child: Text(
+      text,
+      style: TextStyle(
+        fontSize: 18,
+        color: Colors.white,
+        fontWeight: FontWeight.w400,
+      ),
+    ),
+  );
+}
