@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import "dart:math" as Math;
 
-import 'package:headstart_flutter/screens/otp_page.dart';
+// import 'package:headstart_flutter/screens/otp_page.dart';
+import 'package:headstart_flutter/screens/signup-screen.dart';
 
 const images = {
   "image1": "images/logo.png",
@@ -33,8 +34,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: OtpPage(
-        phoneNumber: "8668651325",
+      home: SignUpScreen(
       ),
     );
   }

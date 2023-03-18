@@ -19,9 +19,9 @@ final String phoneNumber;
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             pageTitle(phoneNumber),
-            ResponsiveSize.height(72, context),
+            ResponsiveSize.sizedHeight(72, context),
             otpFieldWidget(context),
-            ResponsiveSize.height(54, context),
+            ResponsiveSize.sizedHeight(54, context),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -47,7 +47,7 @@ final String phoneNumber;
                 ),
               ],
             ),
-            ResponsiveSize.height(51, context),
+            ResponsiveSize.sizedHeight(51, context),
             customButton("VERIFY OTP", () {
               print("Get OTP");
             }),
