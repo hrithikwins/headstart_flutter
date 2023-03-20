@@ -42,6 +42,7 @@ class HomeScreen extends StatelessWidget {
                       Container(
                         color: Colors.white,
                         height: ResponsiveSize.height(236, context),
+                        width: ResponsiveSize.width(148, context),
                         child: Text(
                           "Hello Shreyash",
                           textAlign: TextAlign.center,
@@ -54,6 +55,7 @@ class HomeScreen extends StatelessWidget {
                       Card(
                         child: SizedBox(
                           height: ResponsiveSize.height(236, context),
+                          width: ResponsiveSize.width(148, context),
                           child: Text(
                             "Hello Shreyash",
                             textAlign: TextAlign.center,
