@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:headstart_flutter/constants/colors.dart';
+import 'package:headstart_flutter/screens/home-scren.dart';
 import 'package:headstart_flutter/utils/media-utils.dart';
 
 import '../widgets/custom-button.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
   @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
+  final _formKey = GlobalKey<FormState>();
+
+
+
+  @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
 
     return Scaffold(
       backgroundColor: AppColors.primaryRed,
@@ -18,12 +27,13 @@ class SignUpScreen extends StatelessWidget {
           horizontal: ResponsiveSize.width(26, context),
           vertical: ResponsiveSize.height(62, context),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            signUpTitle(),
-            // TextFormField(),
-            Form(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              signUpTitle(),
+              // TextFormField(),
+              Form(
                 key: _formKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,6 +47,15 @@ class SignUpScreen extends StatelessWidget {
                     Center(
                       child: ElevatedButton(
                         onPressed: () {
+                          //beffore validation sending to homepage ..fr demo
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HomeScreen(),
+                            ),
+                          );
+
+
                           // Validate returns true if the form is valid, or false otherwise.
                           if (_formKey.currentState!.validate()) {
                             // If the form is valid, display a snackbar. In the real world,
@@ -46,7 +65,10 @@ class SignUpScreen extends StatelessWidget {
                             // );
 
                             print("Form is valid");
-                            _formKey.currentState!.reset();
+                            // Navigator.push(context, route)
+                            // _formKey.currentState!.reset();
+                          } else {
+                            print("Form is invalid");
                           }
                         },
                         style: ButtonStyle(
@@ -67,8 +89,10 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     ),
                   ],
-                ))
-          ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -177,7 +201,6 @@ class SignUpScreen extends StatelessWidget {
       ),
     );
   }
-
 
   Container signUpTitle() {
     return Container(

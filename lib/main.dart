@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import "dart:math" as Math;
 
-// import 'package:headstart_flutter/screens/otp_page.dart';
+// import 'package:headstart_flutter/screens/otp_peage.dart';
 import 'package:headstart_flutter/screens/signup-screen.dart';
 
 const images = {
