@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:headstart_flutter/constants/colors.dart';
 import 'package:headstart_flutter/screens/home-scren.dart';
 import 'package:headstart_flutter/utils/media-utils.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../widgets/custom-button.dart';
 
@@ -14,12 +15,34 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final _formKey = GlobalKey<FormState>();
+  //declaring shared preference
 
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
+  void saveFormData() async {
+    final SharedPreferences prefs = await _prefs;
+    prefs.setString('name', 'Hrithik');
+    // Validate returns true if the form is valid, or false otherwise.
+    if (_formKey.currentState!.validate()) {
+      print("Form is valid");
+      _formKey.currentState!.save();
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => HomeScreen()));
+    } else {
+      print("Form is invalid");
+    }
+  }
+
+//saving data to shared preferences
+  void saveDataToSharedPref(String key, String value) async {
+    print("saving to shared preferences");
+    final SharedPreferences prefs = await _prefs;
+    prefs.setString(key, value);
+    print(prefs.getString(key)! + " || reading from shared preferences");
+  }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: AppColors.primaryRed,
       body: Container(
@@ -38,39 +61,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    reusableTextField("Full Name"),
-                    reusableTextField("Date of Birth"),
-                    ageField("Age"),
-                    dropdownField("Prevailing Health Conditions"),
-                    dropdownField("Blood Group"),
+                    reusableTextField("Full Name", "name"),
+                    reusableTextField("Date of Birth", "dob"),
+                    ageField("Age", "age"),
+                    dropdownField("Prevailing Health Conditions", "health", [
+                      "None",
+                      "High BP",
+                      "Low BP",
+                      "Diabetes",
+                      "Heart Disease",
+                      "Cancer",
+                      "Asthma",
+                      "Other"
+                    ]),
+                    dropdownField("Blood Group", "bloodGroup",
+                        ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]),
                     SizedBox(height: 20),
                     Center(
                       child: ElevatedButton(
-                        onPressed: () {
-                          //beffore validation sending to homepage ..fr demo
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => HomeScreen(),
-                            ),
-                          );
-
-
-                          // Validate returns true if the form is valid, or false otherwise.
-                          if (_formKey.currentState!.validate()) {
-                            // If the form is valid, display a snackbar. In the real world,
-                            // you'd often call a server or save the information in a database.
-                            // ScaffoldMessenger.of(context).showSnackBar(
-                            //   const SnackBar(content: Text('Processing Data')),
-                            // );
-
-                            print("Form is valid");
-                            // Navigator.push(context, route)
-                            // _formKey.currentState!.reset();
-                          } else {
-                            print("Form is invalid");
-                          }
-                        },
+                        onPressed: saveFormData,
                         style: ButtonStyle(
                           backgroundColor:
                               MaterialStateProperty.all<Color>(Colors.white),
@@ -98,7 +107,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  Padding reusableTextField(String label) {
+  Padding reusableTextField(String label, String fieldKey) {
     return Padding(
       padding: const EdgeInsets.only(top: 28.0),
       child: Column(
@@ -119,7 +128,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               return null;
             },
             onSaved: (value) {
-              print(value);
+              saveDataToSharedPref(fieldKey, value.toString());
             },
           ),
         ],
@@ -127,7 +136,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  Padding ageField(String label) {
+  Padding ageField(String label, String fieldKey) {
     return Padding(
       padding: const EdgeInsets.only(top: 28.0),
       child: Column(
@@ -157,7 +166,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  Padding dropdownField(String label) {
+  Padding dropdownField(String label, String fieldKey, List options) {
     return Padding(
       padding: const EdgeInsets.only(top: 28.0),
       child: Column(
@@ -175,12 +184,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
             width: 500,
             child: DropdownMenu(
               // value: "Item 1",
-              dropdownMenuEntries: [
-                DropdownMenuEntry(value: "None", label: "None"),
-                DropdownMenuEntry(value: "High BP", label: "High BP"),
-                DropdownMenuEntry(value: "Low BP", label: "Low BP"),
-                DropdownMenuEntry(value: "Diabetes", label: "Diabetes"),
-              ],
+              dropdownMenuEntries: options
+                  .map((data) => DropdownMenuEntry(
+                        value: data,
+                        label: data,
+                      ))
+                  .toList(),
+              // [
+              //   DropdownMenuEntry(value: "None", label: "None"),
+              //   DropdownMenuEntry(value: "High BP", label: "High BP"),
+              //   DropdownMenuEntry(value: "Low BP", label: "Low BP"),
+              //   DropdownMenuEntry(value: "Diabetes", label: "Diabetes"),
+              // ],
               // items: [
               //   DropdownMenuItem(
               //     child: Text("Item 1"),
