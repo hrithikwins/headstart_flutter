@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../utils/media-utils.dart';
+import '../widgets/custom-button.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -65,12 +66,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.white,
                         height: ResponsiveSize.height(236, context),
                         width: ResponsiveSize.width(148, context),
-                        child: Text(
-                          "Hello Shreyash",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
+                        child: Container(
+                          child: Image.asset(
+                            "images/union.png",
                           ),
                         ),
                       ),
@@ -78,12 +76,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: SizedBox(
                           height: ResponsiveSize.height(236, context),
                           width: ResponsiveSize.width(148, context),
-                          child: Text(
-                            "Hello Shreyash",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
+                          child: Container(
+                            child: Icon(
+                              Icons.check_circle,
+                              color: Colors.lightGreen,
+                              size: ResponsiveSize.width(93, context),
                             ),
                           ),
                         ),
@@ -95,11 +92,21 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Center(
-            child: InkWell(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Text("Home Screen")),
+            child: customButton(
+              "Find Donors",
+              () => print(
+                "Hello",
+              ),
+            ),
+          ),
+          ResponsiveSize.sizedHeight(20, context),
+          Center(
+            child: customButton(
+              "Donate Blood",
+              () => print(
+                "Hello",
+              ),
+            ),
           ),
         ],
       ),

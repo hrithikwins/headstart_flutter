@@ -4,7 +4,7 @@ import '../constants/colors.dart';
 
 Widget customButton(String text, VoidCallback onPressed) {
   return InkWell(
-    onTap: () => onPressed,
+    onTap: onPressed,
     child: Container(
       width: 265,
       height: 53,
