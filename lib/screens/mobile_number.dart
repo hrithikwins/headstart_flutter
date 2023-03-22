@@ -3,10 +3,11 @@ import "dart:math" as Math;
 
 import 'package:headstart_flutter/constants/colors.dart';
 
+import '../constants/routes.dart';
 import '../widgets/custom-button.dart';
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+class MobileNumberScreen extends StatelessWidget {
+  const MobileNumberScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,7 @@ class MyHomePage extends StatelessWidget {
               ),
               //
               customButton("GET OTP", () {
-                print("Get OTP");
+                Navigator.pushNamed(context, MyRoutePaths.onboarding1);
               }),
               // ElevatedButton(onPressed: () => null, child: Text("LOGIN"))
             ],

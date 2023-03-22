@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:headstart_flutter/screens/mobile_number.dart';
 import "dart:math" as Math;
 
 // import 'package:headstart_flutter/screens/otp_peage.dart';
 import 'package:headstart_flutter/screens/signup-screen.dart';
+
+import 'constants/routes.dart';
 
 const images = {
   "image1": "images/logo.png",
@@ -34,8 +37,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: SignUpScreen(
-      ),
+      // home: SignUpScreen(),
+      routes: allRoutes,
     );
   }
 }
