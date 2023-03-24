@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:headstart_flutter/screens/mobile_number.dart';
 import "dart:math" as Math;
@@ -6,6 +7,7 @@ import "dart:math" as Math;
 import 'package:headstart_flutter/screens/signup-screen.dart';
 
 import 'constants/routes.dart';
+import 'firebase_options.dart';
 
 const images = {
   "image1": "images/logo.png",
@@ -14,6 +16,7 @@ const images = {
 };
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
