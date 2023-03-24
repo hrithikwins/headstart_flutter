@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   initState() {
     super.initState();
-    readDataFromSharedPref();
+    // readDataFromSharedPref();
   }
 
   void readDataFromSharedPref() async {
@@ -31,6 +31,34 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              child: Text("Hello"),
+            ),
+            // ["messages","Requests","History","Settings"]
+            ListTile(
+              title: Text("Home"),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Text("Profile"),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Text("Logout"),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
       body: Column(
         children: [
           Container(
