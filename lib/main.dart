@@ -13,7 +13,10 @@ const images = {
   "image3": "images/flutter-2.jpg",
 };
 
-void main() {
+Future<void> main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 

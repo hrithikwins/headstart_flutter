@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "96408666221",
+    "project_id": "headstartflutter",
+    "storage_bucket": "headstartflutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:96408666221:android:a01c91e1f5a8d3af80ff64",
+        "android_client_info": {
+          "package_name": "com.example.headstart_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "96408666221-65tfo5qei75a8jq2r3i45lagatrm3ep8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBx26CDo8R_I4-T3vGK6EN4lF6Fngp5rOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "96408666221-65tfo5qei75a8jq2r3i45lagatrm3ep8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
