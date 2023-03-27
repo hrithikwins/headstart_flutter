@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../utils/firebase-utils.dart';
 import '../utils/media-utils.dart';
 import '../widgets/custom-button.dart';
 
@@ -17,6 +18,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   initState() {
     super.initState();
+    FirestoreUtils.getDataFromCollection("signups", "sOgt8Kq75njgWs2MxxKL")
+        .then((value) {
+      print(value.data().toString());
+    });
     // readDataFromSharedPref();
   }
 

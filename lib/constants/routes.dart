@@ -39,7 +39,7 @@ class MyRoutePaths {
 }
 
 Map<String, Widget Function(BuildContext)> allRoutes = {
-  "/": (context) => SignUpScreen(),
+  "/": (context) => HomeScreen(),
   MyRoutePaths.onboarding0: MyRoutesScreens.onboarding0,
   MyRoutePaths.onboarding1: MyRoutesScreens.onboarding1,
   MyRoutePaths.onboarding2: MyRoutesScreens.onboarding2,

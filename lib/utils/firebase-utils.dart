@@ -15,7 +15,8 @@ class FirestoreUtils {
       String collectionName, String docId, Map<String, dynamic> data) async {
     await db.collection(collectionName).doc(docId).set(data);
   }
-
+//example : FirestoreUtils.setDataToCollection("signups", "hrithik", {"name": "Hrithik"});
+//                                                                                             ^ -> this is the document id
 
   //read
   static Future<DocumentSnapshot> getDataFromCollection(
