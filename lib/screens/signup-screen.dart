@@ -3,8 +3,11 @@ import 'package:headstart_flutter/constants/colors.dart';
 import 'package:headstart_flutter/screens/home-scren.dart';
 import 'package:headstart_flutter/utils/media-utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../widgets/custom-button.dart';
+
+
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -32,6 +35,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
       print("Form is invalid");
     }
   }
+
+
+
 
 //saving data to shared preferences
   void saveDataToSharedPref(String key, String value) async {
