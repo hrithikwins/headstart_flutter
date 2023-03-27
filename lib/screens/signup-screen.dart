@@ -5,9 +5,8 @@ import 'package:headstart_flutter/utils/media-utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '../utils/firebase-utils.dart';
 import '../widgets/custom-button.dart';
-
-
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -23,21 +22,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
   void saveFormData() async {
-    final SharedPreferences prefs = await _prefs;
-    prefs.setString('name', 'Hrithik');
-    // Validate returns true if the form is valid, or false otherwise.
-    if (_formKey.currentState!.validate()) {
-      print("Form is valid");
-      _formKey.currentState!.save();
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => HomeScreen()));
-    } else {
-      print("Form is invalid");
-    }
+    await FirestoreUtils.addDataToCollection("signups", {"name": "Hrithik"});
+    // final SharedPreferences prefs = await _prefs;
+    // prefs.setString('name', 'Hrithik');
+    // // Validate returns true if the form is valid, or false otherwise.
+    // if (_formKey.currentState!.validate()) {
+    //   print("Form is valid");
+    //   _formKey.currentState!.save();
+    //   Navigator.push(
+    //       context, MaterialPageRoute(builder: (context) => HomeScreen()));
+    // } else {
+    //   print("Form is invalid");
+    // }
   }
-
-
-
 
 //saving data to shared preferences
   void saveDataToSharedPref(String key, String value) async {

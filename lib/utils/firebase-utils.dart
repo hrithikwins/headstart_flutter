@@ -9,6 +9,14 @@ class FirestoreUtils {
     await db.collection(collectionName).add(data);
   }
 
+
+  //  create or update
+  static Future<void> setDataToCollection(
+      String collectionName, String docId, Map<String, dynamic> data) async {
+    await db.collection(collectionName).doc(docId).set(data);
+  }
+
+
   //read
   static Future<DocumentSnapshot> getDataFromCollection(
       String collectionName, String docId) async {
@@ -26,7 +34,6 @@ class FirestoreUtils {
       String collectionName, String docId, Map<String, dynamic> data) async {
     await db.collection(collectionName).doc(docId).update(data);
   }
-
   //delete
   static Future<void> deleteDataFromCollection(
       String collectionName, String docId) async {
